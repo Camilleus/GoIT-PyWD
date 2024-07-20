@@ -1,0 +1,81 @@
+{% extends "ecomapp/base.html" %} {% block content %}
+
+<div>
+  <h1>Profile page: {{ user.username }}</h1>
+  <img src="{{ user.profile.avatar.url }}" alt="avatar of user" />
+</div>
+
+{% if messages %}
+<div>
+  {% for message in messages %}
+  <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>
+    {{ message }}
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label class="small mb-1">Change Avatar:</label>
+        {{ profile_form.avatar }}
+        <span>{{ profile_form.errors.avatar }}</span>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <h2>Change Password:</h2>
+  <div class="form-row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label class="small mb-1" for="id_old_password">Old Password:</label>
+        <input
+          type="password"
+          name="old_password"
+          id="id_old_password"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label class="small mb-1" for="id_new_password1">New Password:</label>
+        <input
+          type="password"
+          name="new_password1"
+          id="id_new_password1"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-5">
+      <div class="form-group">
+        <label class="small mb-1" for="id_new_password2"
+          >Confirm New Password:</label
+        >
+        <input
+          type="password"
+          name="new_password2"
+          id="id_new_password2"
+          class="form-control"
+          required
+        />
+      </div>
+    </div>
+  </div>
+  <div class="grid">
+    <button type="submit">Save Changes</button>
+    <button type="reset" class="secondary">Reset</button>
+  </div>
+</form>
+
+{% endblock content %}

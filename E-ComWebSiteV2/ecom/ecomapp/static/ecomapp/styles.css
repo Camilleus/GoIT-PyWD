@@ -1,0 +1,92 @@
+/* Basics */
+.alert-error,
+.errorlist {
+    color: crimson;
+}
+
+.alert-success {
+    color: green;
+}
+
+/* Kolorystyka */
+body {
+    background-color: salmon;
+    color: salmon;
+}
+
+h2 {
+    color: #007bff;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Typografia */
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/* Marginesy i padding */
+.container {
+    margin: 20px;
+}
+
+.button-container {
+    padding: 10px;
+}
+
+/* Proste efekty interakcji */
+button:hover {
+    background-color: #218838;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    /* Flexbox  */
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Grid  */
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    /* Fluid Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Viewport Units */
+    header {
+        height: 10vh;
+    }
+
+    section {
+        width: 80vw;
+    }
+}
+
+/* Inne stylizacje */
+.box {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
